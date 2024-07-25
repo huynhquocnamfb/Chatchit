@@ -1,0 +1,83 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://ls-629b37f94e9af1deb096b0bcf1a788d019720875.cf6w2iace6bq.ap-southeast-1.rds.amazonaws.com:3306/dbwebchat
+    username: dbmasteruser
+    password: tcLLBGeo4Mn6ztMf7h}I-+Tx0h(:5Flf
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  # SECURITY
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 123
+            client-secret: 123
+  # Server mail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dduymen@gmail.com
+    password: vcuwqngagorsvitw
+    default-encoding: UTF-8
+    properties:
+      mail:
+        mime:
+          charset: UTF
+        smtp:
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+server:
+  port: 9090
+
+# SWAGGER - http://localhost:9090/swagger-ui/index.html
+open-api:
+  service:
+    api-docs: API documentss
+    title: Chat-API
+    version: v1.0.0
+    server: http://localhost:9090
+
+
+app:
+  baseURL: http://localhost:${server.port}
+  name: ChatChit
+  jwt:
+    secretKey: c3ckfrhaKW8Mplm9ylgQCsMLoFmsip/ouP1u51eWRLRtCgDA6OFoLH+azJtNEDUYODPqhm/Kms2jYJdaIczcrap9vBVrbd7qMk1AuoNJjZg=
+    expiration-time-ms: 86400000 # 30 minutes
+  tokenExpirationTimes:
+    refresh: 86400000 # Refresh token expiration time (24 hours)
+    registration: 900000 # Registration token expiration time (15 minutes)
+    forgotPassword: 1800000 # Forgot password token expiration time (30 minutes)
+    resetPassword: 1800000 # Reset password token expiration time (30 minutes)
+
+
+  endpoint:
+    security:
+      verify-new-user: ${app.baseURL}/api/v1/auth/verify-new-user
+      reset-password: ${app.baseURL}/api/v1/auth/reset-password
+
+
+
+
+# CLOUD
+cloud:
+  aws:
+    storage:
+      bucket:
+        name: locket-bucket/file-upload
+    credentials:
+      access-key: AKIAZL72TT2765YSC5MW
+      secret-key: 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
+    region:
+      static: ap-southeast-1
+    stack:
+      auto: false

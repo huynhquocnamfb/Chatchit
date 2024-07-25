@@ -1,0 +1,19 @@
+1. Use Proper Annotations
+2. Consistent URL Design
+3. Handle HTTP Methods - [GET, POST, PUT, DELETE, PATCH]
+4. Use DTOs for Data Transfer
+5. Validation - [@Email, @Min, @Max]
+6. Exception Handling - [Controller Advice]
+7. Pagination, Filtering and Sorting
+8. API Documentation - [Swagger]
+9. Security
+10. Logging and Monitoring
+11. Separation of Concerns
+12. Consistent Response Formats
+13. Handling Null and Optional Values
+14. API Versioning
+15. CORS Configuration
+16. HTTP Status Codes
+17. Java docs
+18. Environment Configuration
+19. Internationalization 
